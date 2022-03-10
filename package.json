@@ -2,9 +2,10 @@
 	"name": "realmeye-scrape",
 	"version": "1.0.0",
 	"description": "Scrape realmeye profiles for player data",
-	"main": "index.js",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
 	"scripts": {
-		"build": "tsc",
+		"prepare": "tsc",
 		"test": "node ./test/index"
 	},
 	"keywords": [],
@@ -24,6 +25,7 @@
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-prettier": "^4.0.0",
 		"husky": "^7.0.4",
-		"prettier": "^2.5.1"
+		"prettier": "^2.5.1",
+		"typescript": "^4.6.2"
 	}
 }

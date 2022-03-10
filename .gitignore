@@ -1,0 +1,5 @@
+# build
+dist
+
+# node mod
+node_modules

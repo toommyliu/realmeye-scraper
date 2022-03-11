@@ -52,7 +52,5 @@ export async function scrapeDungeonCompletions(playerName: string): Promise<Dung
 		}
 	});
 
-	console.log(dungeonCompletions);
-
 	return dungeonCompletions;
 }

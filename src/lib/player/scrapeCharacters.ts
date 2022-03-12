@@ -81,7 +81,7 @@ function buildCharacter($: CheerioAPI, row: Element, indexes: TableIndexes<Chara
 				character.lastSeen = lastSeen;
 				break;
 			case indexes.server:
-				character.server = $('abbr', charData).first().attr().title;
+				character.server = $('abbr', charData).first().attr()?.title; // eslint-disable-line @typescript-eslint/no-unnecessary-condition
 				break;
 		}
 	});
@@ -102,7 +102,7 @@ function buildCharacter($: CheerioAPI, row: Element, indexes: TableIndexes<Chara
 	return character;
 }
 
-export function scrapeCharacters($: CheerioAPI, container: Cheerio<Element>) {
+export function scrapeCharacters($: CheerioAPI, container: Cheerio<Element>, type: 'player' | 'guild') {
 	// @ts-expect-error
 	// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
 	if ($('.col-md-12 > h3', container)[0]?.children[0]?.data?.match(/characters are hidden/i)) {
@@ -113,7 +113,7 @@ export function scrapeCharacters($: CheerioAPI, container: Cheerio<Element>) {
 		return;
 	}
 
-	const characterTableIndexes = scrapeCharacterIndexes($, charactersTable);
+	const characterTableIndexes = scrapeCharacterIndexes($, charactersTable, type);
 	const characters: Character[] = [];
 	$('tbody > tr', charactersTable).each((i, charRow) => {
 		characters.push(buildCharacter($, charRow, characterTableIndexes));

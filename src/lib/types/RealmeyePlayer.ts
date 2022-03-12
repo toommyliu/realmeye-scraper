@@ -22,22 +22,6 @@ export interface RealmEyePlayerData {
 	dungeonCompletions?: DungeonCompletions;
 }
 
-export interface RealmEyeGuildData {
-	name?: string;
-	realmEyeUrl?: string;
-	description?: string;
-	members?: RealmEyePlayerData[];
-	memberCount?: number;
-	characterCount?: number;
-	fame?: number;
-	fameRank?: number;
-	exp?: number;
-	expRank?: number;
-	server?: string;
-	serverRank?: number;
-	topCharacters?: Character[];
-}
-
 export interface Character {
 	private: boolean;
 	guildCharacter: boolean;

@@ -1,7 +1,11 @@
 import type { CheerioAPI, Cheerio, Element } from 'cheerio';
 import type { TableIndexes, Character } from '../types/RealmeyePlayer';
 
-export function scrapeCharacterIndexes($: CheerioAPI, charactersTable: Cheerio<Element>): TableIndexes<Character> {
+export function scrapeCharacterIndexes(
+	$: CheerioAPI,
+	charactersTable: Cheerio<Element>,
+	type: 'player' | 'guild'
+): TableIndexes<Character> {
 	const indexes: TableIndexes<Character> = {};
 	$('thead th', charactersTable).each((i, e) => {
 		// @ts-expect-error
@@ -13,11 +17,15 @@ export function scrapeCharacterIndexes($: CheerioAPI, charactersTable: Cheerio<E
 		}
 		switch (heading.toUpperCase()) {
 			case 'NAME':
+				if (type === 'guild') {
+					indexes.model = i - 1;
+				}
 				indexes.owner = i;
 				break;
 			case 'CLASS':
-				indexes.pet = i - 2;
-				indexes.model = i - 1;
+				if (type === 'guild') {
+					indexes.model = i - 1;
+				}
 				indexes.class = i;
 				break;
 			case 'L':

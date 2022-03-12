@@ -5,7 +5,7 @@ import type { CharacterModelInfo } from '../types/RealmeyePlayer';
 export function scrapeCharacterModel(modelData: Record<string, string>): CharacterModelInfo {
 	const modelInfo: CharacterModelInfo = {};
 	modelInfo.charactersWithOutfitUrl = `${REALMEYE_URL}${modelData.href}`;
-	modelInfo.renderPosition = modelData.style.split(':')[1]?.trim();
+	modelInfo.renderPosition = modelData.style?.split(':')[1]?.trim(); // eslint-disable-line @typescript-eslint/no-unnecessary-condition
 	modelInfo['data-class'] = modelData['data-class'];
 	modelInfo['data-skin'] = modelData['data-skin'];
 	modelInfo['data-dye1'] = modelData['data-dye1'];

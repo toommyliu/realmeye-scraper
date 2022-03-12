@@ -15,7 +15,7 @@ export function scrapeCharacterEquipment($: CheerioAPI, charData: Element): Equi
 		if (!/empty slot/i.exec(item.name)) {
 			const link = $('a', itemData).first().attr().href;
 			item.realmEyeUrl = `${REALMEYE_URL}${link}`;
-			item.renderPosition = itemInfo?.style.split(':')[1]?.trim();
+			item.renderPosition = itemInfo?.style?.split(':')[1]?.trim(); // eslint-disable-line @typescript-eslint/no-unnecessary-condition
 		}
 
 		switch (i) {

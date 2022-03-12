@@ -29,7 +29,7 @@ function buildCharacter($: CheerioAPI, row: Element, indexes: TableIndexes<Chara
 				}
 				const nameData = $('a', charData).first();
 				const name = nameData.text();
-				const ownerUrl = `${REALMEYE_URL}${nameData.attr().href}`;
+				const ownerUrl = `${REALMEYE_URL}${nameData.attr()?.href}`; // eslint-disable-line @typescript-eslint/no-unnecessary-condition
 				character.owner = {
 					name: name,
 					realmEyeUrl: ownerUrl,

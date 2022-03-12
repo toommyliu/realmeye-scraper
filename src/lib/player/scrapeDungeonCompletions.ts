@@ -37,7 +37,7 @@ export async function scrapeDungeonCompletions(playerName: string): Promise<Dung
 	$('tbody > tr', completions).each((_, tableRow) => {
 		const rowData = $('td', tableRow);
 		// @ts-expect-error
-		const rowLabel: string = rowData.get(1).children[0]?.data;
+		const rowLabel: string = rowData.get(1)?.children[0]?.data; // eslint-disable-line @typescript-eslint/no-unnecessary-condition
 		let dungeon;
 		if (/.*completed$/i.exec(rowLabel) && !/^quests.*/i.exec(rowLabel)) {
 			const name = rowLabel.replace(' completed', '');
@@ -46,7 +46,7 @@ export async function scrapeDungeonCompletions(playerName: string): Promise<Dung
 
 		if (dungeon) {
 			// @ts-expect-error
-			const total = rowData.get(2).children[0]?.data;
+			const total = rowData.get(2)?.children[0]?.data;
 			const num = total ? Number(total) : 0;
 			dungeonCompletions[dungeon] = num;
 		}

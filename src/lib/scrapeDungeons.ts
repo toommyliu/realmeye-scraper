@@ -23,7 +23,8 @@ export async function scrapeDungeons(): Promise<Set<string>> {
 	const container = $('.container');
 	const headAndTable = $(`${heading}, div.table-responsive`, container);
 	for (let i = 0; i < headAndTable.length; i++) {
-		if (headAndTable.get(i).name !== 'h2' || headAndTable.get(i + 1).name !== 'div') {
+		// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+		if (headAndTable.get(i)?.name !== 'h2' || headAndTable.get(i + 1)?.name !== 'div') {
 			continue;
 		}
 

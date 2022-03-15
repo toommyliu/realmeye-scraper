@@ -43,7 +43,7 @@ export async function scrapeDungeonCompletions(playerName: string): Promise<Dung
 
 		if (dungeon) {
 			// @ts-expect-error
-			const total = rowData.get(2)?.children[0]?.data;
+			const total = rowData.get(2)?.children[0]?.data; // eslint-disable-line @typescript-eslint/no-unnecessary-condition
 			const num = total ? Number(total) : 0;
 			dungeonCompletions[dungeon] = num;
 		}

@@ -6,7 +6,8 @@
 	"types": "dist/index.d.ts",
 	"scripts": {
 		"prepare": "tsc",
-		"test": "node ./test/index"
+		"lint": "eslint src --ext ts .",
+		"lint:fix": "eslint src --ext ts . --fix"
 	},
 	"keywords": [],
 	"author": "Tommy Liu",

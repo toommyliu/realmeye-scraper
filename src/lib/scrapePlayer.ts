@@ -1,7 +1,5 @@
-import fetch from '../util/fetch';
 import { load } from 'cheerio';
-
-import { REALMEYE_URL } from '../constants';
+import { fetch, REALMEYE_URL } from '../constants';
 
 import { scrapeCharacters } from './player/scrapeCharacters';
 import { scrapeDungeonCompletions } from './player/scrapeDungeonCompletions';

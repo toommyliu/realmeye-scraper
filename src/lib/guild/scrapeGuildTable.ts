@@ -1,5 +1,4 @@
-import type { CheerioAPI, Cheerio, Element } from 'cheerio';
-
+import type { Cheerio, CheerioAPI, Element } from 'cheerio';
 import type { RealmeyeGuildData } from '../types/RealmeyeGuild';
 
 export function scrapeGuildTable($: CheerioAPI, container: Cheerio<Element>, guildData: RealmeyeGuildData) {

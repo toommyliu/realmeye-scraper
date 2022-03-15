@@ -1,14 +1,12 @@
-import fetch from '../util/fetch';
 import { load } from 'cheerio';
-
-import { REALMEYE_URL } from '../constants';
+import { fetch, REALMEYE_URL } from '../constants';
 
 import { scrapeDescription } from './player/scrapeDescription';
 import { scrapeTopCharacters } from './guild/scrapeTopCharacters';
 import { scrapeGuildTable } from './guild/scrapeGuildTable';
+import { scrapeGuildMembers } from './guild/scrapeGuildMembers';
 
 import type { RealmeyeGuildData } from './types/RealmeyeGuild';
-import { scrapeGuildMembers } from './guild/scrapeGuildMembers';
 
 export async function scrapeGuild(guildName: string) {
 	guildName = guildName.replace(/\s/g, '%20');

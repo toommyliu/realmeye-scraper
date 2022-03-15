@@ -1,9 +1,6 @@
-import fetch from '../../util/fetch';
 import { load } from 'cheerio';
-
+import { fetch, REALMEYE_URL } from '../../constants';
 import Fuse from 'fuse.js';
-
-import { REALMEYE_URL } from '../../constants';
 import { scrapeDungeons } from '../scrapeDungeons';
 
 import type { DungeonCompletions } from '../types/RealmeyePlayer';

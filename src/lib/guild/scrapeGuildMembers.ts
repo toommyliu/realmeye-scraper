@@ -1,6 +1,6 @@
 import { REALMEYE_URL } from '../../constants';
 
-import type { CheerioAPI, Cheerio, Element } from 'cheerio';
+import type { Cheerio, CheerioAPI, Element } from 'cheerio';
 import type { RealmeyeGuildData } from '../types/RealmeyeGuild';
 import type { RealmEyePlayerData, TableIndexes } from '../types/RealmeyePlayer';
 

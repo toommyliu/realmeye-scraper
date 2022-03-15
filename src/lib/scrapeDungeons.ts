@@ -1,7 +1,5 @@
-import fetch from '../util/fetch';
 import { load } from 'cheerio';
-
-import { REALMEYE_URL } from '../constants';
+import { fetch, REALMEYE_URL } from '../constants';
 
 const dungeonCache = new Set<string>();
 

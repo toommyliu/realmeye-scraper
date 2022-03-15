@@ -1,10 +1,10 @@
+import { scrapeCharacterEquipment } from './scrapeCharacterEquipment';
 import { scrapeCharacterIndexes } from './scrapeCharacterIndexes';
 import { scrapeCharacterModel } from './scrapeCharacterModel';
-import { scrapeCharacterEquipment } from './scrapeCharacterEquipment';
 
 import { REALMEYE_URL } from '../../constants';
 
-import type { CheerioAPI, Cheerio, Element } from 'cheerio';
+import type { Cheerio, CheerioAPI, Element } from 'cheerio';
 import type { Character, TableIndexes } from '../types/RealmeyePlayer';
 
 function buildCharacter($: CheerioAPI, row: Element, indexes: TableIndexes<Character>) {

@@ -1,10 +1,8 @@
 import { load } from 'cheerio';
 import { fetch, REALMEYE_URL } from '../constants';
 
-const dungeonCache = new Set<string>();
-
 export async function scrapeDungeons(): Promise<Set<string>> {
-	if (dungeonCache.size) return dungeonCache;
+	const dungeons: Set<string> = new Set();
 
 	const req = await fetch(`${REALMEYE_URL}/wiki/dungeons`);
 	const html = await req.text();
@@ -25,9 +23,9 @@ export async function scrapeDungeons(): Promise<Set<string>> {
 			const nameData = $('a', nameCell).first();
 
 			const name = nameData.text();
-			dungeonCache.add(name);
+			dungeons.add(name);
 		});
 	}
 
-	return dungeonCache;
+	return dungeons;
 }

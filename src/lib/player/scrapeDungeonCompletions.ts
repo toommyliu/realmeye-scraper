@@ -14,11 +14,9 @@ export async function scrapeDungeonCompletions(playerName: string): Promise<Dung
 	const dungeons = await scrapeDungeons();
 
 	const req = await fetch(`${REALMEYE_URL}/graveyard-summary-of-player/${playerName}`);
-	const res = await req.send();
-
-	const html = await res.text();
-
+	const html = await req.text();
 	const $ = load(html);
+
 	const dungeonCompletions: DungeonCompletions = {};
 
 	const private_ = $('body > div.container > div:nth-child(3) > div > h3');

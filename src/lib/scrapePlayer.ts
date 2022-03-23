@@ -11,9 +11,7 @@ export async function scrapePlayer(playerName: string) {
 	const url = `${REALMEYE_URL}/player/${playerName}`;
 
 	const req = await fetch(url);
-	const res = await req.send();
-
-	const html = await res.text();
+	const html = await req.text();
 
 	const $ = load(html);
 	const container = $('.container');

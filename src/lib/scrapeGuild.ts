@@ -14,11 +14,9 @@ export async function scrapeGuild(guildName: string) {
 	const url = `${REALMEYE_URL}/guild/${guildName}`;
 
 	const req = await fetch(url);
-	const res = await req.send();
-
-	const html = await res.text();
-
+	const html = await req.text();
 	const $ = load(html);
+
 	const container = $('.container');
 	const guildNotFound = $('.col-md-12 > h2', container).first();
 	// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition

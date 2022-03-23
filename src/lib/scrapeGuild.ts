@@ -21,7 +21,7 @@ export async function scrapeGuild(guildName: string) {
 	const guildNotFound = $('.col-md-12 > h2', container).first();
 	// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
 	if (/^sorry.*/i.exec(guildNotFound?.text())) {
-		throw new Error(`Guild '${guildName}' could not be found`);
+		throw new Error('Guild not found');
 	}
 
 	const data: RealmeyeGuildData = {

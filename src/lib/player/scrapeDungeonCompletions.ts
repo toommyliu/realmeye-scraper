@@ -1,6 +1,6 @@
 import { load } from 'cheerio';
-import { fetch, REALMEYE_URL } from '../../constants';
 import Fuse from 'fuse.js';
+import { fetch, REALMEYE_URL } from '../../constants';
 import { scrapeDungeons } from '../scrapeDungeons';
 
 import type { DungeonCompletions } from '../types/RealmeyePlayer';
@@ -21,7 +21,7 @@ export async function scrapeDungeonCompletions(playerName: string): Promise<Dung
 
 	const private_ = $('body > div.container > div:nth-child(3) > div > h3');
 	if (private_.text().startsWith('The graveyard of')) {
-		throw new Error(`'${playerName}' has privated their graveyard`);
+		throw new Error('Player has private graveyard');
 	}
 
 	const completions = $('table.main-achievements');

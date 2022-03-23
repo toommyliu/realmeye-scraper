@@ -18,7 +18,7 @@ export async function scrapePlayer(playerName: string) {
 
 	const notFound = $('.player-not-found', container);
 	if (notFound.length) {
-		throw new Error(`'${playerName}' has a private profile or does not exist`);
+		throw new Error('Player not found');
 	}
 
 	const name = $('div h1 .entity-name', container).text();

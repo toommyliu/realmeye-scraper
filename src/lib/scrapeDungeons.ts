@@ -9,10 +9,6 @@ export async function scrapeDungeons(): Promise<Set<string>> {
 	const req = await fetch(`${REALMEYE_URL}/wiki/dungeons`);
 	const res = await req.send();
 
-	if (!(res.statusCode! >= 200 && res.statusCode! < 300)) {
-		throw new Error(`Code '${res.statusCode!}' while fetching dungeons`);
-	}
-
 	const html = await res.text();
 
 	const heading = 'h2#realm-dungeons, h2#realm-event-dungeons, h2#oryx-s-castle, h2#mini-dungeons';

@@ -16,10 +16,6 @@ export async function scrapeDungeonCompletions(playerName: string): Promise<Dung
 	const req = await fetch(`${REALMEYE_URL}/graveyard-summary-of-player/${playerName}`);
 	const res = await req.send();
 
-	if (!(res.statusCode! >= 200 && res.statusCode! < 300)) {
-		throw new Error(`Code '${res.statusCode!}' while scraping dungeon completions for '${playerName}'`);
-	}
-
 	const html = await res.text();
 
 	const $ = load(html);

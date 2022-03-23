@@ -13,10 +13,6 @@ export async function scrapePlayer(playerName: string) {
 	const req = await fetch(url);
 	const res = await req.send();
 
-	if (!(res.statusCode! >= 200 && res.statusCode! < 300)) {
-		throw new Error(`Code '${res.statusCode!}' while fetching '${playerName}'`);
-	}
-
 	const html = await res.text();
 
 	const $ = load(html);

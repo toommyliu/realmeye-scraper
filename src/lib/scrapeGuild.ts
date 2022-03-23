@@ -16,10 +16,6 @@ export async function scrapeGuild(guildName: string) {
 	const req = await fetch(url);
 	const res = await req.send();
 
-	if (!(res.statusCode! >= 200 && res.statusCode! < 300)) {
-		throw new Error(`Code '${res.statusCode!}' while fetching '${guildName}'`);
-	}
-
 	const html = await res.text();
 
 	const $ = load(html);

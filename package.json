@@ -1,6 +1,6 @@
 {
 	"name": "@toommyliu/realmeye-scraper",
-	"version": "1.2.1",
+	"version": "1.2.2",
 	"description": "Scrape realmeye profiles for player data",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",

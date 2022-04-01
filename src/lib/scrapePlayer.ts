@@ -5,7 +5,7 @@ import { scrapeCharacters } from './player/scrapeCharacters';
 import { scrapeDungeonCompletions } from './player/scrapeDungeonCompletions';
 import { scrapeDescription } from './player/scrapeDescription';
 
-import type { RealmEyePlayerData } from './types/RealmeyePlayer';
+import type { RealmeyePlayer } from './types/RealmeyePlayer';
 
 export async function scrapePlayer(playerName: string) {
 	const url = `${REALMEYE_URL}/player/${playerName}`;
@@ -23,7 +23,7 @@ export async function scrapePlayer(playerName: string) {
 
 	const name = $('div h1 .entity-name', container).text();
 
-	const data: RealmEyePlayerData = {
+	const data: RealmeyePlayer = {
 		name: name,
 		realmEyeUrl: url,
 	};

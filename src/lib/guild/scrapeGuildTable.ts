@@ -1,7 +1,7 @@
 import type { Cheerio, CheerioAPI, Element } from 'cheerio';
-import type { RealmeyeGuildData } from '../types/RealmeyeGuild';
+import type { RealmeyeGuild } from '../types/RealmeyeGuild';
 
-export function scrapeGuildTable($: CheerioAPI, container: Cheerio<Element>, guildData: RealmeyeGuildData) {
+export function scrapeGuildTable($: CheerioAPI, container: Cheerio<Element>, guildData: RealmeyeGuild) {
 	const summaryTable = $('div table.summary', container);
 	$('tr', summaryTable).each((_, e) => {
 		const td = $('td', e);

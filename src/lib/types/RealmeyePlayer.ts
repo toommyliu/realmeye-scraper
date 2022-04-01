@@ -1,4 +1,4 @@
-export interface RealmEyePlayerData {
+export interface RealmeyePlayer {
 	name?: string;
 	realmEyeUrl?: string;
 	description?: string;
@@ -28,7 +28,7 @@ export interface Character {
 	class: string;
 	fame: number;
 	maxedStats: string;
-	owner?: RealmEyePlayerData;
+	owner?: RealmeyePlayer;
 	pet?: string;
 	model?: CharacterModelInfo;
 	level?: number;

@@ -1,10 +1,10 @@
-import type { RealmEyePlayerData, Character } from './RealmeyePlayer';
+import type { RealmeyePlayer, Character } from './RealmeyePlayer';
 
-export interface RealmeyeGuildData {
+export interface RealmeyeGuild {
 	name?: string;
 	realmEyeUrl?: string;
 	description?: string;
-	members?: RealmEyePlayerData[];
+	members?: RealmeyePlayer[];
 	memberCount?: number;
 	characterCount?: number;
 	fame?: number;

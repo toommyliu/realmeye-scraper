@@ -6,7 +6,7 @@ import { scrapeTopCharacters } from './guild/scrapeTopCharacters';
 import { scrapeGuildTable } from './guild/scrapeGuildTable';
 import { scrapeGuildMembers } from './guild/scrapeGuildMembers';
 
-import type { RealmeyeGuildData } from './types/RealmeyeGuild';
+import type { RealmeyeGuild } from './types/RealmeyeGuild';
 
 export async function scrapeGuild(guildName: string) {
 	guildName = guildName.replace(/\s/g, '%20');
@@ -24,7 +24,7 @@ export async function scrapeGuild(guildName: string) {
 		throw new Error('Guild not found');
 	}
 
-	const data: RealmeyeGuildData = {
+	const data: RealmeyeGuild = {
 		name: guildName,
 		realmEyeUrl: url,
 	};

@@ -1,11 +1,11 @@
 import { REALMEYE_URL } from '../../constants';
 
 import type { Cheerio, CheerioAPI, Element } from 'cheerio';
-import type { RealmeyeGuildData } from '../types/RealmeyeGuild';
-import type { RealmEyePlayerData, TableIndexes } from '../types/RealmeyePlayer';
+import type { RealmeyeGuild } from '../types/RealmeyeGuild';
+import type { RealmeyePlayer, TableIndexes } from '../types/RealmeyePlayer';
 
-function buildMember($: CheerioAPI, memberRow: Element, indexes: TableIndexes<RealmEyePlayerData>): RealmEyePlayerData {
-	const member: RealmEyePlayerData = {};
+function buildMember($: CheerioAPI, memberRow: Element, indexes: TableIndexes<RealmeyePlayer>): RealmeyePlayer {
+	const member: RealmeyePlayer = {};
 	$('td', memberRow).each((j, memberData) => {
 		let num;
 		switch (j) {
@@ -78,7 +78,7 @@ function buildMember($: CheerioAPI, memberRow: Element, indexes: TableIndexes<Re
 }
 
 function buildMemberTableIndexes($: CheerioAPI, membersTable: Cheerio<Element>) {
-	const indexes: TableIndexes<RealmEyePlayerData> = {};
+	const indexes: TableIndexes<RealmeyePlayer> = {};
 	$('thead th', membersTable).each((i, e) => {
 		// @ts-expect-error
 		let heading: string = e.children[0]?.data;
@@ -123,12 +123,12 @@ function buildMemberTableIndexes($: CheerioAPI, membersTable: Cheerio<Element>) 
 	return indexes;
 }
 
-export function scrapeGuildMembers($: CheerioAPI, container: Cheerio<Element>, guildData: RealmeyeGuildData) {
+export function scrapeGuildMembers($: CheerioAPI, container: Cheerio<Element>, guildData: RealmeyeGuild) {
 	const membersTable = $('.col-md-12 > .table-responsive > table.table.table-striped.tablesorter', container);
 	if (!membersTable.length) return;
 
 	const memberTableIndexes = buildMemberTableIndexes($, membersTable);
-	const members: RealmEyePlayerData[] = [];
+	const members: RealmeyePlayer[] = [];
 	$('tbody > tr', membersTable).each((_, memberRow) => {
 		members.push(buildMember($, memberRow, memberTableIndexes));
 	});

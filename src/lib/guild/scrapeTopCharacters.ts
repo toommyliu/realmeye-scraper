@@ -2,9 +2,9 @@ import { load } from 'cheerio';
 import { fetch, REALMEYE_URL } from '../../constants';
 import { scrapeCharacters } from '../player/scrapeCharacters';
 
-import type { RealmeyeGuildData } from '../types/RealmeyeGuild';
+import type { RealmeyeGuild } from '../types/RealmeyeGuild';
 
-export async function scrapeTopCharacters(guildName: string, guildData: RealmeyeGuildData) {
+export async function scrapeTopCharacters(guildName: string, guildData: RealmeyeGuild) {
 	const req = await fetch(`${REALMEYE_URL}/top-characters-of-guild/${guildName}`);
 	const res = await req.send();
 

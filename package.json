@@ -1,7 +1,7 @@
 {
 	"name": "@toommyliu/realmeye-scraper",
 	"version": "1.2.3",
-	"description": "Scrape realmeye profiles for player data",
+	"description": "Scrape RealmEye player profiles and guilds for data",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"scripts": {

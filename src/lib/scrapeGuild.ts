@@ -8,7 +8,12 @@ import { scrapeGuildMembers } from './guild/scrapeGuildMembers';
 
 import type { RealmeyeGuild } from './types/RealmeyeGuild';
 
-export async function scrapeGuild(guildName: string) {
+/**
+ * Scrape a guild from RealmEye
+ * @param guildName The guild name
+ * @returns {Promise<RealmeyeGuild>}
+ */
+export async function scrapeGuild(guildName: string): Promise<RealmeyeGuild> {
 	guildName = guildName.replace(/\s/g, '%20');
 
 	const url = `${REALMEYE_URL}/guild/${guildName}`;

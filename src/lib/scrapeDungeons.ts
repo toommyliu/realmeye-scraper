@@ -1,6 +1,10 @@
 import { load } from 'cheerio';
 import { fetch, REALMEYE_URL } from '../constants';
 
+/**
+ * Scrape a list of dungeon names from the RealmEye Wiki
+ * @returns {Set<string}
+ */
 export async function scrapeDungeons(): Promise<Set<string>> {
 	const dungeons: Set<string> = new Set();
 

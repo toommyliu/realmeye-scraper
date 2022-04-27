@@ -10,6 +10,11 @@ const match = (val: string, list: string[]) => {
 	if (res.length > 0) return res[0].item;
 };
 
+/**
+ * Scrapes a list of dungeon completions from a player's graveyard
+ * @param playerName The player name
+ * @returns {Promise<DungeonCompletions>}
+ */
 export async function scrapeDungeonCompletions(playerName: string): Promise<DungeonCompletions> {
 	const dungeons = await scrapeDungeons();
 

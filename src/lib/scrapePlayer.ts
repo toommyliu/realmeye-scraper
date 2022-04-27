@@ -7,7 +7,12 @@ import { scrapeDescription } from './player/scrapeDescription';
 
 import type { RealmeyePlayer } from './types/RealmeyePlayer';
 
-export async function scrapePlayer(playerName: string) {
+/**
+ * Scrape a player from RealmEye
+ * @param playerName The player name
+ * @returns {Promise<RealmeyePlayer>}
+ */
+export async function scrapePlayer(playerName: string): Promise<RealmeyePlayer> {
 	const url = `${REALMEYE_URL}/player/${playerName}`;
 
 	const req = await fetch(url);

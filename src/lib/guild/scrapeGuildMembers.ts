@@ -18,6 +18,7 @@ function buildMember($: CheerioAPI, memberRow: Element, indexes: TableIndexes<Re
 
 					const name = $('a', starContainer).first();
 					member.name = name.text();
+					// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
 					member.realmEyeUrl = `${REALMEYE_URL}${name.attr()?.href}`; // eslint-disable-line @typescript-eslint/no-unnecessary-condition
 				} else {
 					// @ts-expect-error

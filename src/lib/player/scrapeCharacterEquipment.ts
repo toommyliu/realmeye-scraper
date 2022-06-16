@@ -13,7 +13,8 @@ export function scrapeCharacterEquipment($: CheerioAPI, charData: Element): Equi
 		const itemName = itemInfo?.title ?? 'Empty Slot';
 		item.name = itemName.replace(/ (UT|T[\d]+)$/g, '');
 		if (!/empty slot/i.exec(item.name)) {
-			const link = $('a', itemData).first().attr().href;
+			const link = $('a', itemData).first().attr()?.href;
+			// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
 			item.realmEyeUrl = `${REALMEYE_URL}${link}`;
 			item.renderPosition = itemInfo?.style?.split(':')[1]?.trim(); // eslint-disable-line @typescript-eslint/no-unnecessary-condition
 		}

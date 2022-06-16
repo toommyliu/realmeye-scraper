@@ -29,6 +29,7 @@ function buildCharacter($: CheerioAPI, row: Element, indexes: TableIndexes<Chara
 				}
 				const nameData = $('a', charData).first();
 				const name = nameData.text();
+				// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
 				const ownerUrl = `${REALMEYE_URL}${nameData.attr()?.href}`; // eslint-disable-line @typescript-eslint/no-unnecessary-condition
 				character.owner = {
 					name: name,
@@ -36,7 +37,7 @@ function buildCharacter($: CheerioAPI, row: Element, indexes: TableIndexes<Chara
 				};
 				break;
 			case indexes.model:
-				const modelAttr = $('.character', charData).first().attr();
+				const modelAttr = $('.character', charData).first().attr()!;
 				character.model = scrapeCharacterModel(modelAttr);
 				break;
 			case indexes.class:

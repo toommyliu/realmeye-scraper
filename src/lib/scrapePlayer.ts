@@ -30,7 +30,7 @@ export async function scrapePlayer(playerName: string) {
 
 	try {
 		data.dungeonCompletions = await scrapeDungeonCompletions(playerName);
-		data.characters = await scrapeCharacters($, container, 'player');
+		data.characters = scrapeCharacters($, container, 'player');
 	} catch {}
 
 	data.description = scrapeDescription($, container);

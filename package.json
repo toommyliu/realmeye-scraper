@@ -14,7 +14,7 @@
 	"license": "Apache-2.0",
 	"dependencies": {
 		"cheerio": "^1.0.0-rc.11",
-		"fuse.js": "^6.6.2",
+		"fuse.js": "^7.0.0",
 		"petitio": "^1.4.0"
 	},
 	"devDependencies": {
